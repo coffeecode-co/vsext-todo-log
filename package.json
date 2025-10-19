@@ -4,7 +4,7 @@
   "publisher": "jpleon",
   "description": "",
   "version": "1.0.0",
-  "icon": "./src/assets/images/icon.png",
+  "icon": "./public/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/coffeecode-co/vsext-todo-log"
