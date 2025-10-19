@@ -1,32 +1,38 @@
 {
-  "name": "todo-console",
-  "displayName": "todo-console",
+  "name": "todo-log",
+  "displayName": "todo-log",
+  "publisher": "jpleon",
   "description": "",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coffeecode-co/vsext-todo-log"
+  },
+  "license": "MIT",
   "engines": {
-    "vscode": "^1.105.0"
+    "vscode": "^1.104.0"
   },
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:todo-console.logVariable"
+    "onCommand:todo-log.logVariable"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "todo-console.helloWorld",
+        "command": "todo-log.helloWorld",
         "title": "Hello World"
       },
       {
-        "command": "todo-console.logVariable",
+        "command": "todo-log.logVariable",
         "title": "Log Variable Under Cursor"
       }
     ],
     "keybindings": [
       {
-        "command": "todo-console.logVariable",
+        "command": "todo-log.logVariable",
         "key": "ctrl+alt+m",
         "mac": "ctrl+alt+m",
         "when": "editorTextFocus"
@@ -45,7 +51,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "@types/vscode": "^1.105.0",
+    "@types/vscode": "^1.104.0",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
     "@typescript-eslint/parser": "^8.45.0",
     "@vscode/test-cli": "^0.0.11",

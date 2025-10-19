@@ -1,4 +1,4 @@
-# todo-console
+# todo-log
 
 Log variables quickly with a single shortcut. This extension inserts a `console.log` below the current line using the variable or expression under your cursor.
 
@@ -15,7 +15,7 @@ Log variables quickly with a single shortcut. This extension inserts a `console.
 2. Press `ctrl+alt+m` (macOS) while the editor has focus.
 3. A `console.log` will be inserted on the next line, preserving indentation.
 
-Command Palette: `Log Variable Under Cursor` (`todo-console.logVariable`)
+Command Palette: `Log Variable Under Cursor` (`todo-log.logVariable`)
 
 ## Requirements
 
@@ -50,7 +50,7 @@ This extension follows Microsoft’s recommendations for authoring VS Code exten
 
 ## Release Notes
 
-### 0.0.1
+### 1.0.0
 
 - Initial release: Insert `console.log` for variable/expression under cursor.
 

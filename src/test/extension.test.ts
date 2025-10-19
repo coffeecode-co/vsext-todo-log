@@ -23,7 +23,7 @@ suite('Extension Test Suite', () => {
     const pos = new vscode.Position(1, 3);
     editor.selection = new vscode.Selection(pos, pos);
 
-    await vscode.commands.executeCommand('todo-console.logVariable');
+    await vscode.commands.executeCommand('todo-log.logVariable');
 
     const text = doc.getText();
     assert.ok(
