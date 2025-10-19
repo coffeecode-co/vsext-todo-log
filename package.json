@@ -4,6 +4,7 @@
   "publisher": "jpleon",
   "description": "",
   "version": "1.0.0",
+  "icon": "./src/assets/images/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/coffeecode-co/vsext-todo-log"
@@ -15,16 +16,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:todo-log.logVariable"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "todo-log.helloWorld",
-        "title": "Hello World"
-      },
       {
         "command": "todo-log.logVariable",
         "title": "Log Variable Under Cursor"
@@ -33,8 +27,8 @@
     "keybindings": [
       {
         "command": "todo-log.logVariable",
-        "key": "ctrl+alt+m",
-        "mac": "ctrl+alt+m",
+        "key": "ctrl+alt+l",
+        "mac": "ctrl+alt+l",
         "when": "editorTextFocus"
       }
     ]
@@ -43,6 +37,7 @@
     "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
+    "package": "pnpm dlx @vscode/vsce package",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
     "test": "vscode-test",
