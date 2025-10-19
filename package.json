@@ -3,7 +3,7 @@
   "displayName": "todo-log",
   "publisher": "jpleon",
   "description": "Extension to log variables with a keyboard shortcut (Ctrl+Alt+L), adds a TODO comment make it easier to delete after use.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icon": "./public/icon.png",
   "repository": {
     "type": "git",

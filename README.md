@@ -1,123 +1,46 @@
 # todo-log
 
-Log variables quickly with a single shortcut. This extension inserts a `console.log` below the current line using the variable or expression under your cursor.
+Log variables and expressions instantly with a single shortcut. It inserts a debug marker and a `console.log` on the next line, preserving indentation.
 
 ## Features
-
-- Insert `console.log('<label>:', <expression>)` on the next line beneath the cursor ✨
-- Works with word under cursor or selected text
-- Preserves indentation level of the current line
-- Keybinding on macOS: `ctrl+alt+l` (Control + Option + L)
+- Inserts, directly below the current line:
+  - a spacing line for clarity,
+  - `// TODO: ⚠️ DEBUG LOG, DELETE AFTER DEBUGGING`,
+  - `console.log('👷 - <label>:', <expression>)`.
+- Works with the word under the cursor or selected text.
+- Preserves the current line's indentation for both lines.
+- Shortcut: `ctrl+alt+l` (macOS, Windows, and Linux).
 
 ## Usage
+- Place the cursor over a variable or select an expression.
+- Run `Log Variable Under Cursor` or press `ctrl+alt+l`.
+- The extension will add a spacing line, a TODO comment, and a console.log in the next line.
 
-1. Place the cursor over a variable or select an expression.
-2. Press `ctrl+alt+l` (macOS) while the editor has focus.
-3. A `console.log` will be inserted on the next line, preserving indentation.
+Command Palette: `Log Variable Under Cursor` (`todo-log.logVariable`).
 
-Command Palette: `Log Variable Under Cursor` (`todo-log.logVariable`)
+## Behavior Details
+- Label formatting: the log label is prefixed with `👷 - ` for visibility, followed by the detected variable/expression and a colon.
+- Example:
+  ```ts
+  // before
+  value
 
-## Requirements
+  // after
+  
+  // TODO: ⚠️ DEBUG LOG, DELETE AFTER DEBUGGING
+  console.log('👷 - value:', value);
+  ```
 
-No special requirements. The extension runs wherever VS Code runs.
+## Compatibility
+- `engines.vscode`: `^1.104.0`. Tested in Trae 1.104.x.
 
-## Extension Settings
 
-This extension currently doesn’t add custom settings. If needed in the future, they will be exposed via `contributes.configuration`.
-
-## Known Issues
-
-- Dotted property chains are detected as a single expression only when contiguous (e.g., `obj.prop`). Bracket notation is not yet expanded.
+## Settings
+- No user settings at the moment. Future settings may allow toggling the TODO marker or label prefix.
 
 ## Development
-
-- Package manager: `pnpm`
-- Formatting: `Prettier`
-
-Scripts:
-
-- `pnpm run compile` – Build TypeScript
-- `pnpm run watch` – Watch mode
-- `pnpm run test` – Run extension tests
-- `pnpm run format` – Format codebase with Prettier
-
-## Following VS Code Guidelines
-
-This extension follows Microsoft’s recommendations for authoring VS Code extensions, including manifest contributions, activation events, and testing strategy.
-
-- Reference: Your First Extension | Visual Studio Code Extension API (https://code.visualstudio.com/api/get-started/your-first-extension)
-- UX Guidelines: https://code.visualstudio.com/api/ux-guidelines/overview
+- Scripts: `pnpm run compile`, `pnpm run test`, `pnpm run format`.
+- Command: `todo-log.logVariable`.
 
 ## Release Notes
-
-### 1.0.0
-
-- Initial release: Insert `console.log` for variable/expression under cursor.
-
-## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-- Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-- Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- 1.0.1: initial release.
