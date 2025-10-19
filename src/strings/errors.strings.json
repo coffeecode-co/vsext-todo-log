@@ -1,0 +1,6 @@
+{
+    "ERRORS": {
+        "NO_ACTIVE_EDITOR": "No active editor. Open a file to use Log Variable.",
+        "NO_VARIABLE_OR_EXPRESSION": "No variable or expression detected at cursor."
+    }
+}

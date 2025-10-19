@@ -1,4 +1,6 @@
 import * as vscode from 'vscode';
+import { getActiveEditor } from './helpers/getActiveEditor';
+import { ERRORS } from './strings/errors.strings.json';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Congratulations, your extension "todo-log" is now active!');
@@ -6,9 +8,8 @@ export function activate(context: vscode.ExtensionContext) {
   const logVariableDisposable = vscode.commands.registerCommand(
     'todo-log.logVariable',
     async () => {
-      const editor = vscode.window.activeTextEditor;
+      const editor = getActiveEditor();
       if (!editor) {
-        vscode.window.showWarningMessage('No active editor. Open a file to use Log Variable.');
         return;
       }
 
@@ -42,18 +43,24 @@ export function activate(context: vscode.ExtensionContext) {
       }
 
       if (!expression) {
-        vscode.window.showInformationMessage('No variable or expression detected at cursor.');
+        vscode.window.showInformationMessage(ERRORS.NO_VARIABLE_OR_EXPRESSION);
         return;
       }
 
       const currentLine = editor.selection.active.line;
       const indentSize = document.lineAt(currentLine).firstNonWhitespaceCharacterIndex;
       const indent = document.lineAt(currentLine).text.slice(0, indentSize);
-      const logText = `console.log('${label}:', ${expression});`;
+      const todoComment = '// TODO: ⚠️ DEBUG LOG, DELETE AFTER DEBUGGING';
+      const logText = `console.log('👷 - ${label}:', ${expression});`;
 
       await editor.edit((editBuilder) => {
         const insertPos = new vscode.Position(currentLine + 1, 0);
-        const textToInsert = `\n${indent}${logText}`;
+        editBuilder.insert(insertPos, '\n');
+      });
+
+      await editor.edit((editBuilder) => {
+        const insertPos = new vscode.Position(currentLine + 1, 0);
+        const textToInsert = `\n${indent}${todoComment}\n${indent}${logText}`;
         editBuilder.insert(insertPos, textToInsert);
       });
 
