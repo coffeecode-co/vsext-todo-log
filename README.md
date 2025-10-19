@@ -7,12 +7,12 @@ Log variables quickly with a single shortcut. This extension inserts a `console.
 - Insert `console.log('<label>:', <expression>)` on the next line beneath the cursor ✨
 - Works with word under cursor or selected text
 - Preserves indentation level of the current line
-- Keybinding on macOS: `ctrl+alt+m` (Control + Option + M)
+- Keybinding on macOS: `ctrl+alt+l` (Control + Option + L)
 
 ## Usage
 
 1. Place the cursor over a variable or select an expression.
-2. Press `ctrl+alt+m` (macOS) while the editor has focus.
+2. Press `ctrl+alt+l` (macOS) while the editor has focus.
 3. A `console.log` will be inserted on the next line, preserving indentation.
 
 Command Palette: `Log Variable Under Cursor` (`todo-log.logVariable`)
